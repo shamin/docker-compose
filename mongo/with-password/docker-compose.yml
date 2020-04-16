@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mongo:
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=local
+      - MONGO_INITDB_ROOT_PASSWORD=123
+    expose:
+      - 27017
+    volumes:
+      - mongodb:/data/db
+    image: mongo:latest
+volumes:
+  mongodb:
