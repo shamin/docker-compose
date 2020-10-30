@@ -28,11 +28,14 @@ if [ $# -eq 0 ]
             "Redis")
                 docker-compose -f redis/docker-compose.yml up -d
                 ;;
+            "Druid")
+                docker-compose -f druid/docker-compose.yml up -d
+                ;;
             *) echo "invalid option $REPLY";;
         esac
     done
 else
-  available=("mysql" "mongo" "kafka" "memcached" "postgres" "redis")
+  available=("mysql" "mongo" "kafka" "memcached" "postgres" "redis", "druid")
   if printf '%s\n' "${available[@]}" | grep "^$1$"
     then
       docker-compose -f $1/docker-compose.yml up -d
