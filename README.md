@@ -18,4 +18,5 @@
 - Postgres
 - Kafka
 - Memcached
+- Druid
 
